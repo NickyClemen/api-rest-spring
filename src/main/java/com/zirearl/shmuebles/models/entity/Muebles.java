@@ -1,6 +1,7 @@
 package com.zirearl.shmuebles.models.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Entity
@@ -13,19 +14,26 @@ public class Muebles implements Serializable {
     @Column(name = "id_mueble")
     private int idMueble;
 
+    @NotEmpty
     private String nombre;
+
+    @NotEmpty
     private String categoria;
     private String subcategoria;
+
+    @NotEmpty
     private float precio;
     private float ancho;
     private float alto;
     private float profundo;
+
+    @Column(name = "otras_medidas")
+    private String otrasMedidas;
     private String material;
     private String colores;
 
     @Column(name = "color_adicional")
     private String colorAdicional;
-
     private String descripcion;
 
     @Column(name = "a_pedido")
@@ -93,6 +101,14 @@ public class Muebles implements Serializable {
 
     public void setProfundo(float profundo) {
         this.profundo = profundo;
+    }
+
+    public String getOtrasMedidas() {
+        return this.otrasMedidas;
+    }
+
+    public void setOtrasMedidas(String otrasMedidas) {
+        this.otrasMedidas = otrasMedidas;
     }
 
     public String getMaterial() {
